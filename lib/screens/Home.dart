@@ -10,7 +10,32 @@ class Home extends StatelessWidget {
       backgroundColor: colorBg,
       appBar: buildAppBar(),
       body: Container(
-        child: Text("Sample Text"),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: Column(
+          children: [
+            searchBox(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget searchBox() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(Icons.search, color: colorBlack),
+          prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 30),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(color: colorGrey),
+        ),
       ),
     );
   }
