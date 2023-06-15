@@ -7,27 +7,32 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: colorBg,
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.menu,
-              color: colorBlack,
-              size: 30,
-            ),
-            Container(
-              height: 40,
-              width: 40,
-              child: Image.asset('assets/images/todo.png'),
-            )
-          ],
-        ),
-      ),
+      backgroundColor: colorBg,
+      appBar: BuildAppBar(),
       body: Container(
         child: Text("Sample Text"),
+      ),
+    );
+  }
+
+  AppBar BuildAppBar() {
+    return AppBar(
+      backgroundColor: colorBg,
+      elevation: 0,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Icon(
+            Icons.menu,
+            color: colorBlack,
+            size: 30,
+          ),
+          Container(
+            height: 40,
+            width: 40,
+            child: Image.asset('assets/images/todo.png'),
+          )
+        ],
       ),
     );
   }
