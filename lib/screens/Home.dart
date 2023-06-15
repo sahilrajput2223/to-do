@@ -8,14 +8,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorBg,
-      appBar: BuildAppBar(),
+      appBar: buildAppBar(),
       body: Container(
         child: Text("Sample Text"),
       ),
     );
   }
 
-  AppBar BuildAppBar() {
+  AppBar buildAppBar() {
     return AppBar(
       backgroundColor: colorBg,
       elevation: 0,
