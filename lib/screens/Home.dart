@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/constants/colours.dart';
+import 'package:to_do/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -18,15 +19,21 @@ class Home extends StatelessWidget {
               child: ListView(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 50),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 50, bottom: 25),
+                    child: const Text(
                       "All ToDos",
                       style: TextStyle(
                           color: colorBlack,
                           fontSize: 30,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: FontWeight.w500),
                     ),
-                  )
+                  ),
+                  todoItem(),
+                  todoItem(),
+                  todoItem(),
+                  todoItem(),
+                  todoItem(),
+                  todoItem(),
                 ],
               ),
             ),
@@ -38,12 +45,12 @@ class Home extends StatelessWidget {
 
   Widget searchBox() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(Icons.search, color: colorBlack),
@@ -63,7 +70,7 @@ class Home extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
+          const Icon(
             Icons.menu,
             color: colorBlack,
             size: 30,
