@@ -29,7 +29,9 @@ class todoItem extends StatelessWidget {
           style: TextStyle(
               fontSize: 18,
               color: colorBlack,
-              decoration: TextDecoration.lineThrough),
+              decoration: toDo.isDone
+                  ? TextDecoration.lineThrough
+                  : TextDecoration.none),
         ),
         trailing: Container(
           padding: EdgeInsets.all(0),
