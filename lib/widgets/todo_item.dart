@@ -20,8 +20,8 @@ class todoItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         tileColor: Colors.white,
-        leading: const Icon(
-          Icons.check_box,
+        leading: Icon(
+          toDo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: colorBlue,
         ),
         title: Text(
