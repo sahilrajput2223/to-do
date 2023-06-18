@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/constants/colours.dart';
+import 'package:to_do/model/todo.dart';
 import 'package:to_do/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
@@ -7,6 +8,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final todoListData = ToDo.todoList();
     return Scaffold(
       backgroundColor: colorBg,
       appBar: buildAppBar(),
@@ -28,12 +30,10 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  todoItem(),
-                  todoItem(),
-                  todoItem(),
-                  todoItem(),
-                  todoItem(),
-                  todoItem(),
+                  for (ToDo i in todoListData)
+                    todoItem(
+                      toDo: i,
+                    )
                 ],
               ),
             ),

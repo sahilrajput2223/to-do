@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/constants/colours.dart';
+import 'package:to_do/model/todo.dart';
 
 class todoItem extends StatelessWidget {
-  const todoItem({super.key});
+  final ToDo toDo;
+
+  const todoItem({super.key, required this.toDo});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: ListTile(
         onTap: () {
           print("Todo List Clicked");
@@ -21,8 +24,8 @@ class todoItem extends StatelessWidget {
           Icons.check_box,
           color: colorBlue,
         ),
-        title: const Text(
-          'Check Mail',
+        title: Text(
+          toDo.todoText,
           style: TextStyle(
               fontSize: 18,
               color: colorBlack,
