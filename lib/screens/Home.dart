@@ -12,33 +12,37 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorBg,
       appBar: buildAppBar(),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          children: [
-            searchBox(),
-            Expanded(
-              child: ListView(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 50, bottom: 25),
-                    child: const Text(
-                      "All ToDos",
-                      style: TextStyle(
-                          color: colorBlack,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500),
-                    ),
+      body: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            child: Column(
+              children: [
+                searchBox(),
+                Expanded(
+                  child: ListView(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 50, bottom: 25),
+                        child: const Text(
+                          "All ToDos",
+                          style: TextStyle(
+                              color: colorBlack,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      for (ToDo i in todoListData)
+                        todoItem(
+                          toDo: i,
+                        )
+                    ],
                   ),
-                  for (ToDo i in todoListData)
-                    todoItem(
-                      toDo: i,
-                    )
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
