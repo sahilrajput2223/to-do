@@ -41,6 +41,49 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0.0, 0.0),
+                              blurRadius: 10.0,
+                              spreadRadius: 0.0)
+                        ],
+                        borderRadius: BorderRadius.circular(20)),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          hintText: 'Add New ToDo Item',
+                          border: InputBorder.none),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20, right: 20),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        print('Elevated Button Pressed');
+                      },
+                      child: Text(
+                        '+',
+                        style: TextStyle(fontSize: 40),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.teal,
+                          minimumSize: Size(60, 60),
+                          elevation: 10)),
+                )
+              ],
+            ),
           )
         ],
       ),
