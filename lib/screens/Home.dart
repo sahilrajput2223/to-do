@@ -75,10 +75,10 @@ class Home extends StatelessWidget {
                       },
                       child: Text(
                         '+',
-                        style: TextStyle(fontSize: 40),
+                        style: TextStyle(fontSize: 45),
                       ),
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent,
+                          primary: Colors.tealAccent,
                           minimumSize: Size(60, 60),
                           elevation: 10)),
                 )
