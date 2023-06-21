@@ -11,9 +11,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final todoListData = ToDo.todoList();
+
   @override
   Widget build(BuildContext context) {
-    final todoListData = ToDo.todoList();
     return Scaffold(
       backgroundColor: colorBg,
       appBar: buildAppBar(),
@@ -40,8 +41,7 @@ class _HomeState extends State<Home> {
                       for (ToDo i in todoListData)
                         todoItem(
                           toDo: i,
-                          onToDoChanged: _handleTodoChange,
-                          onDeleteItem: _handleTodoChange,
+                          onTodoChanged: _handleTodoChange,
                         )
                     ],
                   ),
@@ -99,14 +99,7 @@ class _HomeState extends State<Home> {
 
   void _handleTodoChange(ToDo toDo) {
     setState(() {
-      print(toDo.isDone);
-      print(toDo.todoText);
-      print(toDo.id);
-      toDo.todoText = "sdvsdvsdv";
       toDo.isDone = !toDo.isDone!;
-      print(toDo.isDone);
-      print(toDo.todoText);
-      print(toDo.id);
     });
   }
 
