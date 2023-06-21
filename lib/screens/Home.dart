@@ -3,9 +3,14 @@ import 'package:to_do/constants/colours.dart';
 import 'package:to_do/model/todo.dart';
 import 'package:to_do/widgets/todo_item.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends StatefulWidget {
+  Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final todoListData = ToDo.todoList();
@@ -23,8 +28,8 @@ class Home extends StatelessWidget {
                   child: ListView(
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(top: 50, bottom: 25),
-                        child: const Text(
+                        margin: EdgeInsets.only(top: 50, bottom: 25),
+                        child: Text(
                           "All ToDos",
                           style: TextStyle(
                               color: colorBlack,
@@ -35,6 +40,8 @@ class Home extends StatelessWidget {
                       for (ToDo i in todoListData)
                         todoItem(
                           toDo: i,
+                          onToDoChanged: _handleTodoChange,
+                          onDeleteItem: _handleTodoChange,
                         )
                     ],
                   ),
@@ -90,14 +97,27 @@ class Home extends StatelessWidget {
     );
   }
 
+  void _handleTodoChange(ToDo toDo) {
+    setState(() {
+      print(toDo.isDone);
+      print(toDo.todoText);
+      print(toDo.id);
+      toDo.todoText = "sdvsdvsdv";
+      toDo.isDone = !toDo.isDone!;
+      print(toDo.isDone);
+      print(toDo.todoText);
+      print(toDo.id);
+    });
+  }
+
   Widget searchBox() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const TextField(
+      child: TextField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(Icons.search, color: colorBlack),
@@ -117,7 +137,7 @@ class Home extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
+          Icon(
             Icons.menu,
             color: colorBlack,
             size: 30,

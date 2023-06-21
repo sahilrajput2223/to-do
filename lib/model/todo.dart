@@ -1,7 +1,7 @@
 class ToDo {
-  int id;
-  String todoText;
-  bool isDone;
+  int? id;
+  String? todoText;
+  bool? isDone;
 
   ToDo({
     required this.id,
