@@ -1,3 +1,3 @@
 # To-Do App
 
-To-Do App - Flutter Learning App
+To-Do App - Flutter Learning
